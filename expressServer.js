@@ -12,7 +12,7 @@ app.use(express.static("public"));
 app.all("/", (req, res) => {
   // Express handles the basic headers (status code, mime-type)
   // read in Node.html
-  console.log(path.join(__dirname + "/node.html"));
+  // console.log(path.join(__dirname + "/node.html"));
   res.sendFile(path.join(__dirname + "/node.html"));
   // res.send(`<h1>This is the home page</h1>`)
   // Express handles the end
