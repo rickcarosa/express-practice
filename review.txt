@@ -1,0 +1,45 @@
+Networking - http and tcp/udp 
+- stateless, connectionless
+
+- HTTP message contains start line, headers and body
+-- start line
+--- req: GET /blog http/1.1
+--- res: http/1.1 200 OK
+-- headers
+--- {key:values}
+---- content-type: text/html
+---- content-type: application/json
+----Cache-Control: PublicKeyCredential, max-age=0
+---- Date: Fri, 24 Aug 2018 15:23:58 GMT
+-- BLANK LINE (separate header from body)
+-- body
+--- STUFF - HTMLAllCollection, video, image
+
+
+Express version
+- Express is nodejs
+- app === express() === createApplication()
+- server.listen ---> app.listen
+-- app.get, app.post, app.put, app.delete, app.all
+- served up static files with express.static() middleware
+
+- middleware is any function that has access to req, res, next
+-- app.use, anytime you see a callback/function (req, res, next)
+--- next() is the way to move a piece of middleware forward
+-- express.json() -- work with body parser which creates req.body
+-- express.urlencoded() -- work with body parser which creates req.body
+-- helmet() -- 3rd party module for security, writes safety measures to headers
+
+Request
+- req.ip - contains requesters ip
+- req.path - contains the requested path
+- req.body - parsed data
+
+Response
+- res.send - send text/html
+- res.sendFile - send a file
+- res.locals - is available through the res, local variable for a specific request
+- res.json - sends json back as application/json
+
+res.render - server side rendering -- make a request to server and it responds with html, css, javascript on every response -- can use session variables, cookies
+res.json - api/json needs -- initial response is html, css, js and every time after it will respond with json to update DOM (React, angular, vue) -- fast, store on browser

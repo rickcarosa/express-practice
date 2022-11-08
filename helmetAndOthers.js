@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.post("/ajax", (req, res) => {
   console.log(req.body);
-  res.send("Test");
+  res.json("Test");
 });
 
 app.listen(3000);
