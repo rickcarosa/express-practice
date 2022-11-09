@@ -49,3 +49,9 @@ View Engine - EJS - allows you to write javascript in your .ejs file, the server
 
 Express loads middleware from top to bottom. index.html file in your public folder will satisfy the browser at the path /, it will render that automatically instead of the route at the bottom in the app.get and not reach that code.
 You should never have a file in your public folder competing with routes.
+
+To use Express Generator, in the command line: 
+1. `npm install express-generator -g`
+2. `which express`
+3. cd .., or go to whatever directory you want new folder to be created
+4. `express nameOfFolder/project --view=ejs`
