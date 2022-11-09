@@ -1,1 +1,31 @@
-<h1>Rendered File!</h1>
+<%# this is a comment %> 
+
+<% for(let i = 0; i < 10; i++) { %>
+    <li><%= i %></li>
+<% } %>
+
+
+<% for(let i = 0; i < 10; i++) { %>
+    <% if (i % 2 === 0) { txt = "even" %>
+    <% } else {txt = "odd"} %>
+    <li><%= i %> - <%= txt %></li>
+<% } %>
+
+<br><br><br>
+
+
+<script>
+    // same as the code above, but the browser will render the script tag. The ejs (javascript) code above will transpile to html code the browser can read.
+    for(let i = 0; i < 10; i++) {
+        document.write(`<li>Test</li>`)
+    }
+</script> %>
+
+
+<%# the value from the ejsPractice file in the res.render is available in the view file %>
+<h1><%= msg %></h1>
+<h2><%= msg2 %></h2>
+<h3><%= locals.validated %></h3>
+
+<%# the - tells the browser to evaluate the html, rather than just print it as text %>
+<%- html %> 

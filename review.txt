@@ -43,3 +43,9 @@ Response
 
 res.render - server side rendering -- make a request to server and it responds with html, css, javascript on every response -- can use session variables, cookies
 res.json - api/json needs -- initial response is html, css, js and every time after it will respond with json to update DOM (React, angular, vue) -- fast, store on browser
+
+View Engine - EJS - allows you to write javascript in your .ejs file, the server sends back html to browser without the javascript since it is happening on the server. The ejs code gets transpiled to html since the browser cannot read ejs.
+- So only the html shows up in browser if you inspect it. Opposite of writing a script tag that outputs html (document.write(`<li>test</li>`)).
+
+Express loads middleware from top to bottom. index.html file in your public folder will satisfy the browser at the path /, it will render that automatically instead of the route at the bottom in the app.get and not reach that code.
+You should never have a file in your public folder competing with routes.
