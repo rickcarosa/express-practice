@@ -55,3 +55,7 @@ To use Express Generator, in the command line:
 2. `which express`
 3. cd .., or go to whatever directory you want new folder to be created
 4. `express nameOfFolder/project --view=ejs`
+
+When doing res.send, res.json, res.render, res.sendFile, res.download, res.redirect:
+-- you are NOT sending a webpage, json, file etc. You ARE sending an HTTP message. 
+--- http message is the start line, headers, and body. 
