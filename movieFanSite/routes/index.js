@@ -40,4 +40,25 @@ router.get("/movie/:id", (req, res, next) => {
   });
 });
 
+// for search
+router.post('/search', (req, res, next) => {
+  // whatever name value is in the navbar.ejs file
+  const userSearchTerm = encodeURI(req.body.movieSearch);
+  const cat = req.body.cat;
+  // cat will be either person or movie, the value from the navbar.ejs file
+  const movieUrl = `${apiBaseUrl}/search/${cat}?query=${userSearchTerm}&api_key=${apiKey}`;
+  request.get(movieUrl, (error, response, movieData) => {
+    const parsedData= JSON.parse(movieData)
+    // res.json(parsedData)
+    // if searching by actor
+    if(cat === 'person') {
+      parsedData.results = parsedData.results[0].known_for;
+    }
+    res.render('index', {
+      // the array of movies
+      parsedData: parsedData.results
+    })
+  })
+})
+
 module.exports = router;
